@@ -11,7 +11,7 @@ formInput.addEventListener("submit", function(event) {
     const userAge = parseInt(ageInput.value.trim());
     const userKm = parseInt(kmInput.value.trim());
     const finalPrice = ticketPrice(userAge, userKm, pricePerKm, discount18, discountOver65);
-    // console.log(finalPrice);
+    console.log(finalPrice);
 })
 
 /**
