@@ -22,20 +22,6 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </nav>
@@ -43,38 +29,38 @@
     <div class="container text-bg-dark p-3">
         <div class="row">
             <div class="col-12 col-md-8">
-                <form action="" id="user-form"></form>
-                <div class="row row-cols">
+                <form action="" id="user-form">
+                    <div class="row row-cols">
 
-                    <!-- Nome e Cognome -->
-                    <div class="col-12 col-md-4 mb-2">
-                        <label for="username" class="form-label">Nome e Cognome</label>
-                        <input type="text" id="username" name="username" autocomplete="off" required
-                            class="form-control">
+                        <!-- Nome e Cognome -->
+                        <div class="col-12 col-md-4 mb-2">
+                            <label for="username" class="form-label">Nome e Cognome</label>
+                            <input type="text" id="username" name="username" autocomplete="off" required
+                                class="form-control">
+                        </div>
+
+                        <!-- Chilometri -->
+                        <div class="col-12 col-md-4 mb-2">
+                            <label for="km" class="form-label">Chilometri da percorrere</label>
+                            <input type="number" id="km" name="km" autocomplete="off" required class="form-control">
+                        </div>
+
+                        <!-- Età -->
+                        <div class="col-12 col-md-4">
+                            <label for="age" class="form-label">Età</label>
+                            <input type="number" id="age" name="age" autocomplete="off" required class="form-control">
+                        </div>
                     </div>
 
-                    <!-- Chilometri -->
-                    <div class="col-12 col-md-4 mb-2">
-                        <label for="km" class="form-label">Chilometri da percorrere</label>
-                        <input type="number" id="km" name="km" autocomplete="off" required class="form-control">
-                    </div>
-
-                    <!-- Età -->
-                    <div class="col-12 col-md-4">
-                        <label for="age" class="form-label">Età</label>
-                        <input type="number" id="age" name="age" autocomplete="off" required class="form-control">
-                    </div>
-                </div>
-
-                <!-- Bottone -->
-                <button type="submit" id="submit-btn" class="btn btn-primary mt-3 mb-5 ">Conferma</button>
+                    <!-- Bottone -->
+                    <button type="submit" id="submit-btn" class="btn btn-primary mt-3 mb-5 ">Conferma</button>
                 </form>
             </div>
 
             <div class="col-12 col-md-4 ">
-                <div id="card-ticket" class="card text-bg-info d-none">
+                <div id="card-ticket" class="card text-bg-dark d-none ">
                     <div class="card-header">
-                        <div id="company-card">Dettagli passeggero</div>
+                        <div id="title-card">Dettagli passeggero</div>
                     </div>
                     <div class="card-body">
                         <h2 id="username-card"></h2>
@@ -86,8 +72,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    </div>
     </div>
 
     <!-- Js script -->

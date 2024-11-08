@@ -1,4 +1,4 @@
-const formInput = document.getElementById("user-form");
+const formElem = document.getElementById("user-form");
 const kmInput = document.getElementById("km");
 const ageInput = document.getElementById("age");
 const usernameInput = document.getElementById("username")
@@ -9,19 +9,26 @@ const discountOver65 = 40;
 
 // Elementi della card
 const userElem = document.getElementById("username-card");
-const offerElem = document.getElementById("offer-card")
-const carriageElem = document.getElementById("carriage-card")
-const codeElem = document.getElementById("code-card")
-const ticketPriceElem = document.getElementById("ticket-price-card")
-const cardElem = document.getElementById("card-ticket")
+const offerElem = document.getElementById("offer-card");
+const carriageElem = document.getElementById("carriage-card");
+const codeElem = document.getElementById("code-card");
+const ticketPriceElem = document.getElementById("ticket-price-card");
+const cardElem = document.getElementById("card-ticket");
 
 
-formInput.addEventListener("submit", function (event) {
+formElem.addEventListener("submit", function(event){
     event.preventDefault()
     const userAge = parseInt(ageInput.value.trim());
     const userKm = parseInt(kmInput.value.trim());
+    const usernameUser = usernameInput.value.trim();
     const finalPrice = ticketPrice(userAge, userKm, pricePerKm, discount18, discountOver65);
-    console.log(finalPrice);
+    userElem.innerHTML = (`Nome e Cognome: ${usernameUser}`);
+    carriageElem.innerHTML = (`Carrozza: ${randomNum(1, 10)}`);
+    codeElem.innerHTML = (`Codice CP: ${randomNum (1000, 2000)}`) ;
+    ticketPriceElem.innerHTML = `Il costo del biglietto è di ${finalPrice} €`
+    offerElem.innerHTML = typeOfOffer(userAge);
+    formElem.reset();
+    cardElem.classList.remove("d-none")
 })
 
 /**
@@ -34,7 +41,6 @@ formInput.addEventListener("submit", function (event) {
  * @returns {number}
  */
 function ticketPrice(age, km, costKm, discount18, discount65) {
-
     let ticketPrice = km * costKm;
     if (age < 18) {
         const discountCalc18 = ticketPrice / 100 * discount18;
@@ -44,7 +50,24 @@ function ticketPrice(age, km, costKm, discount18, discount65) {
         ticketPrice = discountCalc65;
     }
     return ticketPrice.toFixed(2);
-    userElem.innerHTML = username;
-    cardElem.classList.remove("d-none")
+}
 
+/**
+ * Calcolo il tipo di offerta
+ * @param {number} age
+ * @returns {string}
+ */
+function typeOfOffer(age) {
+    let offerType = "Biglietto standard"
+    if (age < 18) {
+        offerType = "Sconto Giovani"
+    } else if(age > 65) {
+        offerType = "Sconto Anziani"
+    }
+    return offerType;
+}
+
+// Funzione per generare i numeri random
+function randomNum(min, max) {
+    return (Math.floor(Math.random() *(max - min) + min))
 }
